@@ -141,3 +141,13 @@ db.createCollection("medicaciones",{
     }
 })
 
+db.personas.createIndex({ "identificacion": 1 }, { unique: true });
+db.personas.createIndex({ "email": 1 });
+db.doctores.createIndex({ "codigo": 1 }, { unique: true });
+db.doctores.createIndex({ "persona_id": 1 });
+db.citasMedicas.createIndex({ "doctorId": 1 });
+db.citasMedicas.createIndex({ "fechaCita": 1 });
+db.citasMedicas.createIndex({ "doctorId": 1, "fechaCita": 1 });
+db.medicaciones.createIndex({ "citasMedicasId": 1 });
+db.medicinas.createIndex({ "codigo": 1 }, { unique: true });
+db.medicaciones.createIndex({ "medicinasId": 1 });
